@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>جاري تحضير السيرفر...</title>
-    <!-- كود التأكيد للعلامة الخضراء -->
+    <!-- كود التأكيد -->
     <meta name="monetag" content="e75b186551d7d9f3a514912035c1b50d">
     <!-- كود الإعلان المنبثق -->
     <script>(function(s){s.dataset.zone='10946609',s.src='https://al5sm.com'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
@@ -22,17 +22,18 @@
     </div>
 
     <script>
-        // الكود اللي بيقرأ الرابط بعد كلمة "final"
+        // دالة ذكية تقرأ الرابط بعد كلمة final
         function getTargetUrl() {
             const params = new URLSearchParams(window.location.search);
             const finalUrl = params.get('final');
-            return finalUrl ? decodeURIComponent(finalUrl) : "https://lbx.zone/i/hVIeHTx";
+            return finalUrl ? decodeURIComponent(finalUrl) : "https://lbx.zone/i/0VMoS6H";
         }
 
         document.getElementById('showAdBtn').onclick = function() {
             const destination = getTargetUrl();
             document.getElementById('statusText').innerText = "جاري عرض الإعلان...";
             
+            // هنا نجبر كود إعلان ملء الشاشة على العمل أولاً
             if (typeof show_10941580 === 'function') {
                 show_10941580().then(function() {
                     window.location.href = destination;
@@ -40,6 +41,7 @@
                     window.location.href = destination;
                 });
             } else {
+                // إذا لم يعمل الإعلان لسبب ما، يحول للفيلم مباشرة لكي لا يمل الزائر
                 window.location.href = destination;
             }
         };
