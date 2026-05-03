@@ -22,11 +22,17 @@
     </div>
 
     <script>
-        // رابط قناتك أو الفيلم النهائي
-        var finalDestination = "https://lbx.zone/i/XNpaYeQ";
+        function getTargetUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const finalUrl = params.get('final');
+            // إذا وجد رابطاً في المتصفح يحول إليه، وإذا لم يجد يحول للرابط القديم
+            return finalUrl ? decodeURIComponent(finalUrl) : "https://lbx.zone/i/XNpaYeQ";
+        }
 
         document.getElementById('showAdBtn').onclick = function() {
+            const finalDestination = getTargetUrl();
             document.getElementById('statusText').innerText = "جاري عرض الإعلان...";
+            
             if (typeof show_10941580 === 'function') {
                 show_10941580().then(function() {
                     window.location.href = finalDestination;
