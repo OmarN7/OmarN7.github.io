@@ -17,23 +17,23 @@
         <h2 id="statusText">جاري فحص السيرفر...</h2>
         <p style="color: #bbb;">اضغط على الزر للمشاهدة الآن</p>
         <button id="showAdBtn" style="padding: 15px 40px; font-size: 20px; font-weight: bold; cursor: pointer; background-color: #6200ea; color: white; border: none; border-radius: 10px;">
-            مشاهدة الآن
+            مشاهدة الفيلم الآن
         </button>
     </div>
 
     <script>
-        // دالة ذكية تقرأ الرابط بعد كلمة final
+        // دالة قراءة الرابط المتغير
         function getTargetUrl() {
             const params = new URLSearchParams(window.location.search);
             const finalUrl = params.get('final');
-            return finalUrl ? decodeURIComponent(finalUrl) : "https://lbx.zone/i/0VMoS6H";
+            return finalUrl ? decodeURIComponent(finalUrl) : "https://lbx.zone/i/6EVsAXC";
         }
 
         document.getElementById('showAdBtn').onclick = function() {
             const destination = getTargetUrl();
             document.getElementById('statusText').innerText = "جاري عرض الإعلان...";
             
-            // هنا نجبر كود إعلان ملء الشاشة على العمل أولاً
+            // إجبار إعلان ملء الشاشة على الظهور أولاً
             if (typeof show_10941580 === 'function') {
                 show_10941580().then(function() {
                     window.location.href = destination;
@@ -41,7 +41,6 @@
                     window.location.href = destination;
                 });
             } else {
-                // إذا لم يعمل الإعلان لسبب ما، يحول للفيلم مباشرة لكي لا يمل الزائر
                 window.location.href = destination;
             }
         };
