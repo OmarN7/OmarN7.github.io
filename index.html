@@ -6,8 +6,8 @@
     <title>جاري تحضير السيرفر...</title>
     <!-- كود التأكيد -->
     <meta name="monetag" content="e75b186551d7d9f3a514912035c1b50d">
-    <!-- كود الإعلان المنبثق -->
-    <script>(function(s){s.dataset.zone='10946609',s.src='https://al5sm.com'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <!-- كود الإعلان المنبثق (الجديد) -->
+    <script>(function(s){s.dataset.zone='10946609',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <!-- كود إعلان ملء الشاشة -->
     <script src="https://libti.com" data-zone="10941580" data-cfasync="false"></script>
 </head>
@@ -17,31 +17,24 @@
         <h2 id="statusText">جاري فحص السيرفر...</h2>
         <p style="color: #bbb;">اضغط على الزر للمشاهدة الآن</p>
         <button id="showAdBtn" style="padding: 15px 40px; font-size: 20px; font-weight: bold; cursor: pointer; background-color: #6200ea; color: white; border: none; border-radius: 10px;">
-            مشاهدة الفيلم الآن
+            مشاهدة الآن
         </button>
     </div>
 
     <script>
-        // دالة قراءة الرابط المتغير
-        function getTargetUrl() {
-            const params = new URLSearchParams(window.location.search);
-            const finalUrl = params.get('final');
-            return finalUrl ? decodeURIComponent(finalUrl) : "https://lbx.zone/i/6EVsAXC";
-        }
+        // رابط قناتك أو الفيلم النهائي
+        var finalDestination = "https://lbx.zone/i/XNpaYeQ";
 
         document.getElementById('showAdBtn').onclick = function() {
-            const destination = getTargetUrl();
             document.getElementById('statusText').innerText = "جاري عرض الإعلان...";
-            
-            // إجبار إعلان ملء الشاشة على الظهور أولاً
             if (typeof show_10941580 === 'function') {
                 show_10941580().then(function() {
-                    window.location.href = destination;
+                    window.location.href = finalDestination;
                 }).catch(function() {
-                    window.location.href = destination;
+                    window.location.href = finalDestination;
                 });
             } else {
-                window.location.href = destination;
+                window.location.href = finalDestination;
             }
         };
     </script>
